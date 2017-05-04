@@ -1,0 +1,61 @@
+{%include "gms/header.html"%}
+{%include "gms/side_nav.html"%}
+
+{%load static%}
+
+<style>
+.dashboard-alerts > .alert-active{
+background-color: rgba(255, 0, 0, 0.7);
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 4px;
+text-align: center;
+color:#ffffff;
+/*animation: blinker 1s linear infinite;*/
+}
+.dashboard-alerts > .no-alerts{
+background-color: rgba(46, 204, 113, 0.48);
+padding-top: 10px;
+padding-bottom: 10px;
+border-radius: 4px;
+text-align: center;
+color:#ffffff;
+/*animation: blinker 1s linear infinite;*/
+}
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+</style>
+<div class="col-md-10">
+  <div class="dashboard">
+    <div class="dashboard-alerts">
+        {%if alert_count != 0%}
+        <div class="alert-active">
+          Be advised there is currently {{alert_count}} active alerts!
+        </div>
+        {%else%}
+        <div class="no-alerts">
+        No Active Alerts.
+      </div>
+      {%endif%}
+    </div>
+    <div class="dashboard-charts">
+
+    <div id="chart"></div>
+  </div>
+</div>
+
+<script>
+var chart = c3.generate({
+  data: {
+    columns: [
+      ['2017', 300,350,300,0,0,0],
+      ['2016', 130,100,140,200,150,50],
+    ],
+    types: {
+      2017: 'area',
+      2016: 'area-spline'
+    }
+  }
+});
+</script>

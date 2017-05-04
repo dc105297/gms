@@ -1,0 +1,86 @@
+{%include "gms/header.html"%}
+{%load static%}
+<style>
+
+.boxed-in{
+  text-align: center;
+  color:#ffffff;
+  height:250px;
+  display:block;
+  opacity:0.5;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+a.boxed-in:hover{
+  text-align: center;
+  color:#ffffff;
+  opacity:1;
+  text-decoration: none;
+}
+.boxed-in h2{
+  padding-top: 30px;
+}
+.relations{
+  background-image: url("{%static "index/img/relations.jpg"%}");
+  background-size: cover;
+  background-position:left;
+  background-repeat: no-repeat;
+}
+.family{
+  background-image: url("{%static "index/img/family.jpg"%}");
+  background-size: cover;
+  background-position:left;
+  background-repeat: no-repeat;
+}
+
+/*Start Old Styles
+.btn-nav{
+  margin-top: 60px;
+  text-align: center;
+}
+.btn-cust{
+margin:15px;
+background: transparent;
+font-family: 'Just Another Hand', cursive;
+font-size: 30px;
+border-color:#ffffff;
+color:#ffffff;
+border-width: 3px;
+height:50px;
+width:250px;
+}
+.btn-cust:hover{
+  color: #c0392b;
+  border-color: #c0392b;
+}
+.btn-cust-2:hover{
+  color: #2ecc71;
+  border-color: #2ecc71;
+}
+End Old Styles*/
+</style>
+  <!--<div class="btn-nav">
+    <a class="btn btn-cust" href="/help">I NEED HELP NOW!</a>
+    <button class="btn btn-cust btn-cust-2">FILE A REPORT</button>
+  </div>-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+        <a class="relations boxed-in" href="#">
+          <h2>Relationships</h2>
+      </a>
+    </div>
+
+    <div class="col-md-4">
+      <a class="family boxed-in" href="#">
+        <h2>Family</h2>
+      </a>
+    </div>
+
+    <div class="col-md-4">
+        <div class="boxed-in bullying">
+          <h2>Bullying</h2>
+        </div>
+    </div>
+  </div>
+</div>

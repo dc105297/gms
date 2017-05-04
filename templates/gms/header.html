@@ -1,0 +1,78 @@
+{%load static%}
+<style>
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand');
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+
+html, body{
+  height: 100%;
+}
+body {
+  }
+  .main-bg-image{
+    background-image: url("{%static "index/img/hands_dark.jpg"%}");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0;
+    z-index: -2;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .main-bg-overlay{
+    /*background: #6190e8;
+    background: -webkit-linear-gradient(to right, #6190e8, #a7bfe8);
+    background: linear-gradient(to right, #6190e8, #a7bfe8); */
+    background: #000000;
+    opacity:.2;
+    top: 0;
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  .title-header img{
+    width:50px;
+    margin-top:20px;
+  }
+  .title-header{
+    color:#ffffff;
+    font-family: 'Just Another Hand', cursive;
+    text-align: center;
+  }
+  .title-header h1{
+    margin-top:5px;
+    font-size:60px;
+    letter-spacing: 3px;
+  }
+</style>
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" integrity="sha256-dsOXGNHAo/syFnazt+KTBsCQeRmlcW1XKL0bCK4Baec=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css" integrity="sha256-gl80aFE+bSTFw7UJf+ne/RkwC55cjidIp0Oe3AX5pfo=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js" integrity="sha256-mlJR4DaLFvEBAgHcavz/vASrM6RrzcQq2lXDBwMixZU=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css"/>
+  <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="main-bg-image"></div>
+    <div class="main-bg-overlay"></div>
+    <div class="title-header">
+      <img src="{%static "index/img/gms_logo_1.png"%}">
+      <h1>Got My Six?</h1>
+    </div>
+  {% block content %}
+
+  {% endblock %}

@@ -1,0 +1,41 @@
+<style>
+body{
+  background-color:#333 !important;
+  background-image:none !important;
+}
+.dash-nav{
+  -webkit-font-smoothing: antialiased;
+}
+.dash-nav .nav-stacked li a{
+  color:#ffffff;
+}
+.dash-nav .nav-stacked >li>a:hover{
+  background-color:rgba(46, 204, 113, 0.48);
+}
+.dash-nav .nav-stacked >li>a:focus{
+  background-color:rgba(46, 204, 113, 0.48);
+}
+.dash-nav .nav-pills>li.active>a{
+  background-color:rgba(46, 204, 113, 0.48);
+}
+.dash-nav .badge{
+  background-color: rgba(255, 0, 0, 0.7);
+}
+</style>
+
+<div class="col-md-2">
+  <div class="dash-nav">
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" {% if request.path == '/dashboard/' %} class="active"{% endif %}><a href="/dashboard/">Home</a></li>
+      {%if alert_count != 0%}
+      <li role="presentation" {% if request.path == '/dashboard/alerts/' %} class="active"{% endif %}><a href="/dashboard/alerts/">Alerts<span class="badge">{{alert_count}}</span></a></li>
+      {%else%}
+      <li role="presentation" {% if request.path == '/dashboard/alerts/' %} class="active"{% endif %}><a href="/dashboard/alerts/">Alerts</span></a></li>
+      {%endif%}
+      <li role="presentation" {% if request.path == '/dashboard/students/' %} class="active"{% endif %}><a href="/dashboard/students/">Manage Students</a></li>
+      <li role="presentation" {% if request.path == '/dashboard/reporting/' %} class="active"{% endif %}><a href="#">Reporting</a></li>
+      <li role="presentation" {% if request.path == '/dashboard/settings/' %} class="active"{% endif %}><a href="#">Settings</a></li>
+      <li role="presentation" {% if request.path == '/dashboard/help/' %} class="active"{% endif %}><a href="#">Help</a></li>
+    </ul>
+  </div>
+</div>

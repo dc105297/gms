@@ -1,0 +1,114 @@
+{%include "gms/header.html"%}
+{%load static%}
+
+<style>
+.alerts-header h1{
+  padding:0px;
+  margin-top:10px;
+  text-align: center;
+  color:#ffffff;
+}
+
+.active-alerts .table{
+  background-color: rgba(0, 0, 0, 0.74);
+  border-radius: 2px;
+}
+.active-alerts .table>thead>tr>th{
+  color:#ffffff;
+}
+.active-alerts .table>tbody>tr>td{
+  color:rgb(38, 152, 86);
+  font-size: 15px;
+}
+.resolve-btn{
+ background-color:red;
+ border-color:red;
+ color:#ffffff;
+}
+.resolve-btn:hover{
+ background-color:red;
+ border-color:red;
+ color:#ffffff;
+}
+.dataTables_scrollBody::-webkit-scrollbar {
+  background-color:rgba(0, 0, 0, 0.74);
+}
+.dataTables_scrollBody::-webkit-scrollbar-thumb{
+  background-color:rgb(38, 152, 86);
+}
+.dataTables_filter {
+   display: none;
+}
+#searchbox{
+  width:100%;
+  background: transparent;
+  color:#ffffff;
+  border:1px solid rgb(38, 152, 86);
+  height:40px;
+}
+#searchbox::-webkit-input-placeholder{
+  color:#ffffff;
+  text-align: center;
+}
+
+</style>
+<div class="col-md-12 alerts-header">
+<h1>Alerts</h1>
+<hr>
+</div>
+{%include "gms/side_nav.html"%}
+<div class="col-md-10">
+  <div class="active-alerts">
+    <input type="text"  placeholder="Search..." id="searchbox">
+    <table id="alerts" class="table">
+    <thead>
+      <tr>
+        <th>Name:</th>
+        <th>District:</th>
+        <th>Student ID:</th>
+        <th>Alert Created:</th>
+        <!-- Future Me: Removed Response Team and Active Alert, it will be noticable based on button status.-->
+        <!--<th>Response Team Activated:</th>
+        <th>Active Alert:</th> -->
+        <th>Alert ID:</th>
+        <th>Status:
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for alert in alert_list%}
+      <tr>
+        <td>{{alert.student}}</td>
+        <td>{{alert.district}}</td>
+        <td>{{alert.student.student_id}}</td>
+        <td>{{alert.alert_created}}</td>
+        <!-- Future Me: Removed Response Team and Active Alert, it will be noticable based on button status.-->
+        <!--<td>{{alert.response_team_activated}}</td>
+        <td>{{alert.is_active}}</td>-->
+        <td><a href="{% url 'alert_details' uuid=alert.alert_id%}">{{alert.alert_id}}</a></td>
+        {%if alert.is_active%}
+        <td><a href="#" class="btn btn-default resolve-btn">Resolve</a></td>
+        {%else%}
+        <td>Resolved</td>
+        {%endif%}
+      </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+ </div>
+</div>
+
+<!--Custom Datatable view-->
+<script>
+$(document).ready(function(){
+    alertsTable = $('#alerts').DataTable({
+      "bLengthChange": false,
+      "scrollY":     300,
+      "scroller":    true,
+      "bPaginate": false
+    });
+    $('#searchbox').keyup(function(){
+          alertsTable.search($(this).val()).draw() ;
+    });
+});
+</script>

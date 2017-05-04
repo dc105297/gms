@@ -1,0 +1,75 @@
+{%include "gms/header.html"%}
+{%load static%}
+<style>
+.onboard-title{
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color:#ffffff;
+  margin-top:20px;
+}
+.onboard-title h4{
+  display:inline-block;
+  margin-left:5px;
+  margin-right:5px;
+}
+.onboard-form{
+  margin-top:50px !important;
+  max-width:500px;
+  text-align:center;
+  margin:0 auto;
+}
+.onboard-form select{
+  width: 100%;
+  height: 50px;
+  background-color: transparent;
+  color: #ffffff;
+}
+.onboard-form input{
+  height:50px;
+  background-color: transparent;
+  color:#ffffff;
+}
+.onboard-form button{
+  height:50px;
+  background-color: transparent;
+  color:#ffffff;
+  width:100%;
+  max-width:200px;
+}
+.onboard-form button:hover{
+  border-color:#2ecc71;
+  background-color: transparent;
+  color:#2ecc71;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #ffffff !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #ffffff !important;
+}
+:-ms-input-placeholder{ /* IE 10+ */
+  color: #ffffff !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #ffffff !important;
+}
+</style>
+
+<div class="onboard-title">
+  <h2>Join Your School Below:</h2>
+  <h4>No Names.</h4><h4>No Worries.</h4><h4>Anonymous.</h4>
+</div>
+
+<div class="onboard-form">
+  <form method='POST' action='/studentsetup/' enctype="multipart/form-data">{% csrf_token %}
+    <div class="form-group">
+      <select name="District">
+        <option value="Conneaut School District">Conneaut School District</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input placeholder="Student ID" type="text" class="form-control" name="student_id">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
