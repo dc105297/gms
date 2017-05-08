@@ -2,6 +2,35 @@
 {%load static%}
 <style>
 
+.search-box{
+  background-color: rgba(46, 204, 113, 0.48);
+  text-align: center;
+  padding-top:30px;
+  padding-bottom:20px;
+
+}
+.search-box-input{
+  display:inline-block;
+  padding:23px 50px 30px;
+  height:80px;
+  width:100%;
+  max-width:400px;
+  font-size:22px;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing:antialiased;
+  border-radius: 4px;
+  border:none;
+}
+.search-box-btn{
+  display: inline-block;
+}
+.inside {
+position:absolute;
+text-indent:15px;
+margin-top:22px;
+color:gray;
+}
+
 .boxed-in{
   text-align: center;
   color:#ffffff;
@@ -28,6 +57,12 @@ a.boxed-in:hover{
 }
 .family{
   background-image: url("{%static "index/img/family.jpg"%}");
+  background-size: cover;
+  background-position:left;
+  background-repeat: no-repeat;
+}
+.social{
+  background-image: url("{%static "index/img/social.jpg"%}");
   background-size: cover;
   background-position:left;
   background-repeat: no-repeat;
@@ -65,6 +100,16 @@ End Old Styles*/
   </div>-->
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <div class="search-box">
+        <form action="">
+          <i class="inside fa fa-search fa-2x"></i>
+          <input class="search-box-input" type="text" placeholder="What's bothering you bruh?" name="query">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-4">
         <a class="relations boxed-in" href="#">
           <h2>Relationships</h2>
@@ -78,9 +123,9 @@ End Old Styles*/
     </div>
 
     <div class="col-md-4">
-        <div class="boxed-in bullying">
-          <h2>Bullying</h2>
-        </div>
+      <a class="social boxed-in" href="#">
+        <h2>Social</h2>
+      </a>
     </div>
   </div>
 </div>

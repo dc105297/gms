@@ -25,7 +25,7 @@ SECRET_KEY = 'p3d3t25mz7^pht1tf%szfd_lsn!mz)+9%ee7^6*%s+%@_=71au'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','darknet']
+ALLOWED_HOSTS = ['localhost','darknet','d9c7f58e.ngrok.io']
 
 #Login Redirect URL
 LOGIN_URL = '/dashboard/login/'
