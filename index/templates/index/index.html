@@ -67,7 +67,21 @@ a.boxed-in:hover{
   background-position:left;
   background-repeat: no-repeat;
 }
-
+.modal-diag-cust{
+  background-color: rgba(0, 0, 0, 0.7);
+  color:#ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+.modal-diag-cust a{
+  color:rgba(46, 204, 113, 1);
+  font-family: 'Poppins', sans-serif;
+}
+.fa-heart{
+  color: red;
+}
+.top-questions{
+  line-height: 5;
+}
 /*Start Old Styles
 .btn-nav{
   margin-top: 60px;
@@ -104,14 +118,14 @@ End Old Styles*/
       <div class="search-box">
         <form action="">
           <i class="inside fa fa-search fa-2x"></i>
-          <input class="search-box-input" type="text" placeholder="What's bothering you bruh?" name="query">
+          <input class="search-box-input" type="text" placeholder="What's bothering you?" name="query">
         </form>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4">
-        <a class="relations boxed-in" href="#">
+        <a class="relations boxed-in" data-toggle="modal" data-target="#relationships" href="#">
           <h2>Relationships</h2>
       </a>
     </div>
@@ -126,6 +140,37 @@ End Old Styles*/
       <a class="social boxed-in" href="#">
         <h2>Social</h2>
       </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="relationships" tabindex="-1" role="dialog" aria-labelledby="relationships">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-diag-cust">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><center><i class="fa fa-heart fa-2x"></i> Relationships</center></h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="top-questions">
+              <h4>Top Questions In School</h4>
+            <a href="#">Getting over a breakup?</a><br>
+            <a href="#">Is my relationship healthy?</a><br>
+            <a href="#">Is my relationship getting serious?</a><br>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4>Topics Searched</h4>
+            <img style="width:400px; margin-left:-88px;" src="{%static "index/img/wordcloud.png"%}">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>
